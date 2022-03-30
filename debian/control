@@ -1,0 +1,42 @@
+Source: odr-audioenc
+Section: hamradio
+Priority: optional
+Maintainer: Robin Alexander <robin.alexander@netplus.ch>
+Build-Depends: debhelper-compat (= 12),
+               libasound2-dev,
+               libcurl4-openssl-dev,
+               libgstreamer-plugins-base1.0-dev,
+               libgstreamer1.0-dev,
+               libjack-jackd2-dev,
+               libvlc-dev,
+               libzmq3-dev
+Standards-Version: 4.6.0.1
+Homepage: https://www.opendigitalradio.org/mmbtools
+Vcs-Browser: https://github.com/opendigitalradio/debian-audioenc
+Vcs-Git: https://github.com/opendigitalradio/debian-audioenc.git
+
+Package: odr-audioenc
+Architecture: any
+Multi-Arch: foreign
+Depends: gstreamer1.0-plugins-good,
+         libasound2,
+         libcurl4,
+         libgstreamer-plugins-base1.0-0,
+         libgstreamer1.0-0,
+         libjack0,
+         libvlc5,
+         libzmq5,
+         vlc-plugin-base,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: DAB and DAB+ encoder that integrates into the ODR-mmbTools
+ odr-audioenc is an encoder, which can read audio from a file (raw or wav),
+ from an ALSA source, from JACK or using libVLC or GStreamer, and encode to
+ a file, a pipe, to an EDI or ZeroMQ output compatible with ODR-DabMux.
+ .
+ The libVLC input allows the encoder to use all inputs supported by VLC,
+ and therefore also webstreams and other network sources. The GStreamer input
+ is an alternative to read from various sources.
+ .
+ odr-audioenc can insert Programme-Associated Data, that can be generated
+ with ODR-PadEnc. ODR-AudioEnc v3 is compatible with ODR-PadEnc v3.
